@@ -27,3 +27,7 @@ De data die ik nodig heb voor deze visualisaties komt van het CBS
 [CBS Aardgas- en aardoliereserves; nationale rekeningen](http://statline.cbs.nl/Statweb/publication/?DM=SLNL&PA=82539NED&D1=0-3&D2=a&VW=T)
 [Noorwegen actuele stand fonds](https://www.nbim.no/)
 [Bureau Statistiek Noorwegen - National accounts](http://www.ssb.no/en/nasjonalregnskap-og-konjunkturer/statistikker/knr/kvartal)
+
+
+[![BCH compliance](https://bettercodehub.com/edge/badge/miloubis/Programmeerproject?branch=master)](https://bettercodehub.com/)
+<img src='https://bettercodehub.com/edge/badge/miloubis/Programmeerproject?branch=master'>
