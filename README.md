@@ -30,4 +30,3 @@ De data die ik nodig heb voor deze visualisaties komt van het CBS
 
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/miloubis/Programmeerproject?branch=master)](https://bettercodehub.com/)
-<img src='https://bettercodehub.com/edge/badge/miloubis/Programmeerproject?branch=master'>
