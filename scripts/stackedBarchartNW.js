@@ -1,4 +1,4 @@
-var svg = d3.select("svg#container1"),
+var svg = d3.select("svg#container2"),
     margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
@@ -16,7 +16,7 @@ var y = d3.scaleLinear()
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-d3.csv("AardgasbatenNL.csv", function(d, i, columns) {
+d3.csv("CompositionFundNW.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
@@ -26,7 +26,7 @@ d3.csv("AardgasbatenNL.csv", function(d, i, columns) {
   var keys = data.columns.slice(1);
 
   x.domain(data.map(function(d) { return d.Jaar; }));
-  y.domain([0, 900000]).nice();
+  y.domain([0, 900]).nice();
   z.domain(keys);
 
   g.append("g")

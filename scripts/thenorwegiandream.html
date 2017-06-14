@@ -1,6 +1,13 @@
 <!--
 	Name: Milou Bisseling
 	Student number: 10427538
+
+	<div id="container1" style="position: relative; width:600px; height:350px;"></div>
+		<div id="container2" style="position: relative; width:600px; height:350px;"></div>
+		<svg id="container2" width="600" height="350"></svg>
+		<script type="text/javascript" src="stackedBarchartNL.js"></script>
+		<svg id="container1" width="600" height="350""></div>
+		<script type="text/javascript" src="stackedBarchartNW.js"></script>
 //-->
 
 <!DOCTYPE html>
@@ -8,10 +15,13 @@
 	<head>
 		<title>The Norwegian Dream</title>
 		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="thenorwegiandream.css">
 	</head>
 	<body>
-		<h1 style ="font-family:sans-serif;">The Norwegian Dream</h1>
-		<svg width="960" height="500"></svg>
+		<svg id="container1" width="600" height="350"></svg>
 		<script type="text/javascript" src="stackedBarchartNL.js"></script>
+		<svg id="container2" width="600" height="350"></svg>
+		<script type="text/javascript" src="stackedBarchartNW.js"></script>
+
 	</body>
 </html>
