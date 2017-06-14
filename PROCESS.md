@@ -22,4 +22,10 @@ deze vergelijking maken voor Nederland met als resultaat de staat van de economi
 
 ## Dag 6
 #### Maandag 12-6
-Vandaag begin ik aan mijn gecombineerde stacked bar chart met line graph voor Nederland.
+Vandaag begin ik aan mijn gecombineerde stacked bar chart met line graph voor Nederland. Deze heb ik afgemaakt deze dag, maar de line is me nog niet gelukt, dit moet ik nog even navragen. Verder heb ik heel lang gezeten op de ticks van de x-as
+omdat dit niet makkelijk ging met scaleband.
+
+## Dag 7
+#### Dinsdag 13-6
+Vandaag ga ik dezelfde barchart als gisteren voor Noorwegen maken.
+
