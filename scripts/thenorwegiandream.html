@@ -2,26 +2,48 @@
 	Name: Milou Bisseling
 	Student number: 10427538
 
-	<div id="container1" style="position: relative; width:600px; height:350px;"></div>
-		<div id="container2" style="position: relative; width:600px; height:350px;"></div>
-		<svg id="container2" width="600" height="350"></svg>
-		<script type="text/javascript" src="stackedBarchartNL.js"></script>
-		<svg id="container1" width="600" height="350""></div>
-		<script type="text/javascript" src="stackedBarchartNW.js"></script>
 //-->
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>The Norwegian Dream</title>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="thenorwegiandream.css">
-	</head>
-	<body>
-		<svg id="container1" width="600" height="350"></svg>
-		<script type="text/javascript" src="stackedBarchartNL.js"></script>
-		<svg id="container2" width="600" height="350"></svg>
-		<script type="text/javascript" src="stackedBarchartNW.js"></script>
 
+<!DOCTYPE html>
+<html>
+	<title>The Norwegian Dream</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js"></script>
+	<script src="//rawgit.com/Caged/d3-tip/master/index.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="thenorwegiandream.css">
+	<body>
+		<!-- !PAGE CONTENT! -->
+		<div class="w3-content" style="max-width:1500px">
+
+		<!-- Header -->
+		<header class="w3-panel w3-center w3-opacity" style="padding:64px 16px">
+		  	<h1>THE NORWEGIAN DREAM</h1>
+		  	<h1 class="w3-xlarge">Milou Bisseling</h1>
+		</header>
+
+		<!-- Charts -->
+		<div class="charts" style="margin-bottom:128px">
+		  	<svg id="container1" width="600" height="350" position="relative"></svg>
+			<script type="text/javascript" src="stackedBarchartNL.js"></script>
+			<svg id="container2" width="600" height="350" position="relative"></svg>
+			<script type="text/javascript" src="stackedBarchartNW.js"></script>
+		</div>
+
+		<!-- Footer -->
+		<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+		  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+		  <i class="fa fa-instagram w3-hover-opacity"></i>
+		  <i class="fa fa-snapchat w3-hover-opacity"></i>
+		  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+		  <i class="fa fa-twitter w3-hover-opacity"></i>
+		  <i class="fa fa-linkedin w3-hover-opacity"></i>
+		  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+		</footer>
 	</body>
 </html>

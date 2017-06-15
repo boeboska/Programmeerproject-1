@@ -2,3 +2,12 @@
 	Name: Milou Bisseling
 	Student number: 10427538
 */
+
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+
+#container1,#container2 {
+	position: relative;
+	text-align: center;
+}
+

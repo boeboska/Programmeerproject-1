@@ -14,7 +14,7 @@ var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var z = d3.scaleOrdinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .range(["#d0743c", "#ff8c00"]);
 
 d3.csv("AardgasbatenNL.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
@@ -26,7 +26,7 @@ d3.csv("AardgasbatenNL.csv", function(d, i, columns) {
   var keys = data.columns.slice(1);
 
   x.domain(data.map(function(d) { return d.Jaar; }));
-  y.domain([0, 900000]).nice();
+  y.domain([0, 1000]).nice();
   z.domain(keys);
 
   g.append("g")
@@ -40,13 +40,23 @@ d3.csv("AardgasbatenNL.csv", function(d, i, columns) {
       .attr("x", function(d) { return x(d.data.Jaar); })
       .attr("y", function(d) { return y(d[1]); })
       .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-      .attr("width", x.bandwidth());
+      .attr("width", x.bandwidth())
+    .on("mouseover", function() { tooltip.style("display", null); })
+    .on("mouseout", function() { tooltip.style("display", "none"); })
+    .on("mousemove", function(d) {
+      console.log(d);
+      var xPosition = d3.mouse(this)[0] - 500;
+      var yPosition = d3.mouse(this)[1] - 5;
+      tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+      tooltip.select("text").text(d[1]-d[0]);
+    });
+
 
   g.append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x)
-          .tickValues(x.domain().filter(function(d,i){return !(i%10)})));
+          .tickValues(x.domain().filter(function(d,i){return !(i%5)})));
 
   g.append("g")
       .attr("class", "axis")
@@ -58,7 +68,7 @@ d3.csv("AardgasbatenNL.csv", function(d, i, columns) {
       .attr("fill", "#000")
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
-      .text("Market value");
+      .text("In EUR billions EUR");
 
   var legend = g.append("g")
       .attr("font-family", "sans-serif")
@@ -80,5 +90,41 @@ d3.csv("AardgasbatenNL.csv", function(d, i, columns) {
       .attr("y", 9.5)
       .attr("dy", "0.32em")
       .text(function(d) { return d; });
+
+  var tooltip = svg.append("g")
+    .attr("class", "tooltip")
+    .style("display", "none");
+      
+  tooltip.append("rect")
+    .attr("width", 30)
+    .attr("height", 20)
+    .attr("fill", "white")
+    .style("opacity", 0.5);
+
+  tooltip.append("text")
+    .attr("x", 15)
+    .attr("dy", "1.2em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-weight", "bold");
 });
+
+
+  // Prep the tooltip bits, initial display is hidden
+var tooltip = svg.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 60)
+  .attr("height", 20)
+  .attr("fill", "white")
+  .style("opacity", 0.5);
+
+tooltip.append("text")
+  .attr("x", 30)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "12px")
+  .attr("font-weight", "bold");
 

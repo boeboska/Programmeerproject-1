@@ -2,7 +2,7 @@ var svg = d3.select("svg#container2"),
     margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    g2 = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
 var x = d3.scaleBand()
@@ -14,7 +14,7 @@ var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var z = d3.scaleOrdinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .range(["#d0743c", "#ff8c00"]);
 
 d3.csv("CompositionFundNW.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
@@ -26,10 +26,10 @@ d3.csv("CompositionFundNW.csv", function(d, i, columns) {
   var keys = data.columns.slice(1);
 
   x.domain(data.map(function(d) { return d.Jaar; }));
-  y.domain([0, 900]).nice();
+  y.domain([0, 1000]).nice();
   z.domain(keys);
 
-  g.append("g")
+  g2.append("g")
     .selectAll("g")
     .data(d3.stack().keys(keys)(data))
     .enter().append("g")
@@ -42,13 +42,13 @@ d3.csv("CompositionFundNW.csv", function(d, i, columns) {
       .attr("height", function(d) { return y(d[0]) - y(d[1]); })
       .attr("width", x.bandwidth());
 
-  g.append("g")
+  g2.append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x)
-          .tickValues(x.domain().filter(function(d,i){return !(i%10)})));
+          .tickValues(x.domain().filter(function(d,i){return !(i%5)})));
 
-  g.append("g")
+  g2.append("g")
       .attr("class", "axis")
       .call(d3.axisLeft(y).ticks(10, "r"))
     .append("text")
@@ -58,9 +58,9 @@ d3.csv("CompositionFundNW.csv", function(d, i, columns) {
       .attr("fill", "#000")
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
-      .text("Market value");
+      .text("In EUR billions");
 
-  var legend = g.append("g")
+  var legend = g2.append("g")
       .attr("font-family", "sans-serif")
       .attr("font-size", 10)
       .attr("text-anchor", "end")
