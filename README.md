@@ -4,7 +4,7 @@
 ### Milou Bisseling
 ### 10427538
 
-[Hier klikken schat](https://miloubis.github.io/Programmeerproject/scripts/thenorwegiandream.html)
+[Hier klikken voor de visualisatie](https://miloubis.github.io/Programmeerproject/scripts/thenorwegiandream.html)
 
 Noorwegen heeft jarenlang haar olieopbrengsten in een fonds gestopt, hierdoor staat er inmiddels
 al meer dan 800 miljard euro op de teller. Wanneer de oliebronnen uitgeput zijn zullen 
