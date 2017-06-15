@@ -25,7 +25,14 @@ deze vergelijking maken voor Nederland met als resultaat de staat van de economi
 Vandaag begin ik aan mijn gecombineerde stacked bar chart met line graph voor Nederland. Deze heb ik afgemaakt deze dag, maar de line is me nog niet gelukt, dit moet ik nog even navragen. Verder heb ik heel lang gezeten op de ticks van de x-as
 omdat dit niet makkelijk ging met scaleband.
 
-## Dag 7
-#### Dinsdag 13-6
-Vandaag ga ik dezelfde barchart als gisteren voor Noorwegen maken.
+## Dag 7 en 8
+#### Dinsdag 13-6 en Woensdag 14-6
+Vandaag ga ik dezelfde barchart als gisteren voor Noorwegen maken. Uiteindelijk waren de data voor Noorwegen alsnog niet goed en heb ik zelf alles uit annual reports moeten halen en zoeken. Dit heeft erg veel tijd gekost doordat ze elke paar jaar 
+van opmaak veranderen doordat er verschillende audit firms betrokken zijn geweest hierbij. Het probleem was vooral om het
+rendement te meten aangezien er verschillende factoren bijdragen aan het rendement. Het gaat hierbij om de wisselkoers
+van de Noorse kroon maar ook om de management kosten van de Norges bank om het fonds te besturen. Uiteindelijk heb ik ervoor
+gekozen om de managementkosten af te trekken van het rendement, verder heb ik de winsten uit wisselkoers schommelingen 
+bij het rendement geteld. Verder ben ik lang bezig geweest met het naast elkaar plaatsen van de stacked bar charts.
 
+## Dag 8
+#### Donderdag 15-6
