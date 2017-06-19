@@ -36,3 +36,8 @@ bij het rendement geteld. Verder ben ik lang bezig geweest met het naast elkaar 
 
 ## Dag 8
 #### Donderdag 15-6
+Vandaag heb ik tooltips gemaakt voor de grafieken, dit ging erg moeizaam. De tooltip bij een van de twee grafieken blijft de hele tijd achter de grafiek hangen.
+
+## Dag 9
+#### Maandag 19-6
+Vandaag heb ik de tooltips gefixt, ze staan nu allebei voor de grafiek, nu ben ik bezig beide tooltips aan elkaar te linken.
