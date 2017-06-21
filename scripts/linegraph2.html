@@ -45,7 +45,7 @@ body {
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 var svg = d3.select("svg"),
-    margin = {top: 30, right: 20, bottom: 30, left: 50},
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -76,7 +76,7 @@ d3.json("data.json", function(error, data) {
     g.append("g")
         .attr("class", "axis axis--x")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x).ticks(10));
 
     g.append("g")
         .attr("class", "axis axis--y")

@@ -2,7 +2,7 @@ function drawChart(container, barchartdata, country) {
 
   // Create svg
   var svg = d3.select(container),
-    margin = {top: 40, right: 20, bottom: 30, left: 50},
+    margin = {top: 40, right: 70, bottom: 30, left: 50},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g2 = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -14,24 +14,6 @@ function drawChart(container, barchartdata, country) {
         .attr("text-anchor", "left")  
         .style("font-size", "16px")  
         .text(country);
-
-  // Prep the tooltip bits, initial display is hidden
-  var tooltip = svg.append("g")
-    .attr("class", "tooltip")
-    .style("display", "none");
-      
-  tooltip.append("rect")
-    .attr("width", 60)
-    .attr("height", 20)
-    .attr("fill", "white")
-    .style("opacity", 0.5);
-
-  tooltip.append("text")
-    .attr("x", 30)
-    .attr("dy", "1.2em")
-    .style("text-anchor", "middle")
-    .attr("font-size", "12px")
-    .attr("font-weight", "bold");
 
   // Create x, y and z scale
   var x = d3.scaleBand()
@@ -72,15 +54,7 @@ function drawChart(container, barchartdata, country) {
         .attr("x", function(d) { return x(d.data.Jaar); })
         .attr("y", function(d) { return y(d[1]); })
         .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-        .attr("width", x.bandwidth())
-      .on("mouseover", function() { tooltip.style("display", null); })
-      .on("mouseout", function() { tooltip.style("display", "none"); })
-      .on("mousemove", function(d) {
-        var xPosition = d3.mouse(this)[0] - 5;
-        var yPosition = d3.mouse(this)[1] - 5;
-        tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-        tooltip.select("text").text(d[1]-d[0]);
-      });
+        .attr("width", x.bandwidth());
 
 // wat moet ik doen? functie maken die allebei de rechthoeken met class jaar selecteert en
 // daar de tooltip aanvast maakt.
@@ -130,7 +104,7 @@ function drawChart(container, barchartdata, country) {
 }
 
 drawChart("svg#container2", "CompositionFundNorway.csv", "Norway")
-drawChart("svg#container1", "AardgasbatenNL.csv", "Netherlands")
+drawChart("svg#container1", "CompositionFundNL.csv", "Netherlands")
 
 
 
