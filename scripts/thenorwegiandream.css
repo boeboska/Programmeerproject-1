@@ -11,3 +11,36 @@ h1 {letter-spacing: 6px}
 	z-index: 1;
 }
 
+.axis {
+	font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: #6F257F;
+  stroke-width: 3px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: #F1F3F3;
+  stroke: #6F257F;
+  stroke-width: 2px;
+}
+  
+.hover-line {
+  stroke: #6F257F;
+  stroke-width: 2px;
+}

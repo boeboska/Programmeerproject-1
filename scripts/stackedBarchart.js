@@ -1,7 +1,8 @@
 function drawChart(container, barchartdata, country) {
 
+  // Create svg
   var svg = d3.select(container),
-    margin = {top: 30, right: 20, bottom: 30, left: 50},
+    margin = {top: 40, right: 20, bottom: 30, left: 50},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g2 = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -9,7 +10,7 @@ function drawChart(container, barchartdata, country) {
   // Append title
   svg.append("text")
         .attr("x", (10))             
-        .attr("y", 15)
+        .attr("y", 20)
         .attr("text-anchor", "left")  
         .style("font-size", "16px")  
         .text(country);
@@ -32,7 +33,7 @@ function drawChart(container, barchartdata, country) {
     .attr("font-size", "12px")
     .attr("font-weight", "bold");
 
-
+  // Create x, y and z scale
   var x = d3.scaleBand()
       .rangeRound([0, width])
       .paddingInner(0.05)
@@ -44,6 +45,7 @@ function drawChart(container, barchartdata, country) {
   var z = d3.scaleOrdinal()
       .range(["#d0743c", "#ff8c00"]);
 
+  // Load data barchart
   d3.csv(barchartdata, function(d, i, columns) {
     for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
     d.total = t;
@@ -57,6 +59,7 @@ function drawChart(container, barchartdata, country) {
     y.domain([0, 1000]).nice();
     z.domain(keys);
 
+  // Add bars
     g2.append("g")
       .selectAll("g")
       .data(d3.stack().keys(keys)(data))
@@ -73,24 +76,23 @@ function drawChart(container, barchartdata, country) {
       .on("mouseover", function() { tooltip.style("display", null); })
       .on("mouseout", function() { tooltip.style("display", "none"); })
       .on("mousemove", function(d) {
-        console.log(d);
         var xPosition = d3.mouse(this)[0] - 5;
         var yPosition = d3.mouse(this)[1] - 5;
         tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
         tooltip.select("text").text(d[1]-d[0]);
       });
 
-
-
 // wat moet ik doen? functie maken die allebei de rechthoeken met class jaar selecteert en
 // daar de tooltip aanvast maakt.
 
+  // Add x-axis
     g2.append("g")
         .attr("class", "axis")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
             .tickValues(x.domain().filter(function(d,i){return !(i%5)})));
 
+  // Add y-axis
     g2.append("g")
         .attr("class", "axis")
         .call(d3.axisLeft(y).ticks(10, "r"))
@@ -103,6 +105,7 @@ function drawChart(container, barchartdata, country) {
         .attr("text-anchor", "start")
         .text("In EUR billions");
 
+  // Add legend
     var legend = g2.append("g")
         .attr("font-family", "sans-serif")
         .attr("font-size", 10)
