@@ -41,3 +41,11 @@ Vandaag heb ik tooltips gemaakt voor de grafieken, dit ging erg moeizaam. De too
 ## Dag 9
 #### Maandag 19-6
 Vandaag heb ik de tooltips gefixt, ze staan nu allebei voor de grafiek, nu ben ik bezig beide tooltips aan elkaar te linken.
+
+## Dag 10
+#### Dinsdag 20-6
+Vandaag is het me eindelijk gelukt om twee line graphs over de stacked barcharts te plakken, zodat je tegelijkertijd het totale rendement, totale baten en de marktwaarde van het fonds.
+
+## Dag 11
+#### Woensdag 21-6
+Vandaag heb ik weer geprobeerd de tooltips aan elkaar te linken maar dat blijft me niet lukken, morgen ga ik dit nog een keer vragen. Verder heb ik een dropdownmenu gemaakt met verschillende percentages en een grafiek met de Nederlandse aardgasreserves.
