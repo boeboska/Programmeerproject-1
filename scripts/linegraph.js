@@ -50,35 +50,52 @@ function drawLinegraph(container, container2, data) {
           .attr("class", "line")
           .attr("d", line);
 
-      var focus2 = g3.append("g")
+      var focus = g3.append("g")
           .attr("class", "focus")
           .style("display", "none");
 
-      focus2.append("line")
+      focus.append("line")
           .attr("class", "x-hover-line hover-line")
           .attr("y1", 0)
           .attr("y2", height);
 
-      focus2.append("line")
+      focus.append("line")
           .attr("class", "y-hover-line hover-line")
           .attr("x1", width)
           .attr("x2", width);
 
-      focus2.append("circle")
+      focus.append("circle")
           .attr("r", 7.5);
 
-      focus2.append("text")
+      focus.append("text")
           .attr("x", 15)
         	.attr("dy", ".31em");
+
+      // if first iteratin of function
+      // focus2 = focus;
+
+      // if (container === "svg#container1") {
+      //   console.log('hallo')
+      //   focus2 = focus;
+      // }
 
       svg.append("rect")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
           .attr("class", "overlay")
           .attr("width", width)
           .attr("height", height)
-          .on("mouseover", function() { focus2.style("display", null); })
-          .on("mouseout", function() { focus2.style("display", "none"); })
+          .on("mouseover", function() { focus.style("display", null); })
+          .on("mouseout", function() { focus.style("display", "none"); })
           .on("mousemove", mousemove);
+
+      // svg2.append("rect")
+      //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      //     .attr("class", "overlay")
+      //     .attr("width", width)
+      //     .attr("height", height)
+      //     .on("mouseover", function() { focus.style("display", null); })
+      //     .on("mouseout", function() { focus.style("display", "none"); })
+      //     .on("mousemove", mousemove);
 
       function mousemove() {
         var x0 = x.invert(d3.mouse(this)[0]),
@@ -86,10 +103,15 @@ function drawLinegraph(container, container2, data) {
             d0 = data[i - 1],
             d1 = data[i],
             d = x0 - d0.Year > d1.Year - x0 ? d1 : d0;
-        focus2.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
-        focus2.select("text").text(function() { return d.Marketvalue; });
-        focus2.select(".x-hover-line").attr("y2", height - y(d.Marketvalue));
-        focus2.select(".y-hover-line").attr("x2", width + width);
+        focus.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
+        focus.select("text").text(function() { return d.Marketvalue; });
+        focus.select(".x-hover-line").attr("y2", height - y(d.Marketvalue));
+        focus.select(".y-hover-line").attr("x2", width + width);
+
+        // focus2.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
+        // focus2.select("text").text(function() { return d.Marketvalue; });
+        // focus2.select(".x-hover-line").attr("y2", height - y(d.Marketvalue));
+        // focus2.select(".y-hover-line").attr("x2", width + width);
       }
   });
 }
@@ -104,15 +126,15 @@ d3.select('#inds')
         selectValue = d3.select('select').property('value')
         if (selectValue === "Norwayfund") {
           d3.select("svg#container1").selectAll("rect").remove();
-          d3.select("g").remove();
-          d3.select("path.line").remove();
+          d3.select("svg#container1").select("g").remove();
+          d3.select("svg#container1").select("path.line").remove();
           drawChart("svg#container1", "CompositionFundNL.csv", "Netherlands");
           drawLinegraph("svg#container1", "svg#container2", "dataNL.json");
         }
         else if (selectValue === "Pensionfunds") {
           d3.select("svg#container1").selectAll("rect").remove();
-          d3.select("g").remove();
-          d3.select("path.line").remove();
+          d3.select("svg#container1").select("g").remove();
+          d3.select("svg#container1").select("path.line").remove();
           drawChart("svg#container1", "CompositionFundNLPension.csv", "Netherlands");
           drawLinegraph("svg#container1", "svg#container2", "dataNLPension.json");
         }
