@@ -187,8 +187,6 @@ function drawLinegraphs(error, dataNL, dataNW) {
 	    d0 = dataNL[i - 1],
 	    d1 = dataNL[i],
 	    d = x0 - d0.Year > d1.Year - x0 ? d1 : d0;
-	    console.log((d.Year.getYear()) - 69)
-	    console.log(dataNW[d.Year.getYear() - 69]);
 		d2 = dataNW[d.Year.getYear() - 69];
 	focus1.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
 	focus1.select("text").text(function() { return d.Marketvalue; });
@@ -198,8 +196,8 @@ function drawLinegraphs(error, dataNL, dataNW) {
 	focus2.select("text").text(function() { return d2.Marketvalue; });
 	focus2.select(".x-hover-line").attr("y2", height - y(d2.Marketvalue));
 	focus2.select(".y-hover-line").attr("x2", width + width);
+	d3.select("svg#container3").append("text");
 	}
-
 }
 
 
