@@ -10,8 +10,9 @@ d3.select('#inds')
     selectValue = d3.select('select').property('value')
     if (selectValue === "Norwayfund") {
       d3.select("svg#container1").selectAll("rect").remove();
-      d3.select("svg#container1").select("g").remove();
-      d3.select("svg#container1").select("path.line").remove();
+      d3.select("svg#container1").selectAll("text").remove();
+      d3.select("svg#container1").selectAll("g").remove();
+      d3.select("svg#container1").selectAll("path.line").remove();
       drawChart("svg#container1", "CompositionFundNL.csv", "Netherlands");
       queue()
   		.defer(d3.json, "dataNL.json")
@@ -20,8 +21,9 @@ d3.select('#inds')
     }
     else if (selectValue === "Pensionfunds") {
       d3.select("svg#container1").selectAll("rect").remove();
-      d3.select("svg#container1").select("g").remove();
-      d3.select("svg#container1").select("path.line").remove();
+      d3.select("svg#container1").selectAll("text").remove();
+      d3.select("svg#container1").selectAll("g").remove();
+      d3.select("svg#container1").selectAll("path.line").remove();
       drawChart("svg#container1", "CompositionFundNLPension.csv", "Netherlands");
       queue()
       	.defer(d3.json, "dataNLPension.json")
@@ -42,6 +44,8 @@ function drawLinegraphs(error, dataNL, dataNW) {
       margin = {top: 30, right: 70, bottom: 30, left: 50},
       width = +svg2.attr("width") - margin.left - margin.right,
       height = +svg2.attr("height") - margin.top - margin.bottom;
+
+    var svg3 = d3.select("svg#container3");
 
 	var parseTime = d3.timeParse("%Y")
       bisectDate = d3.bisector(function(d) { return d.Year; }).left;
@@ -100,8 +104,8 @@ function drawLinegraphs(error, dataNL, dataNW) {
 
 	focus1.append("line")
 	  .attr("class", "y-hover-line hover-line")
-	  .attr("x1", width)
-	  .attr("x2", width);
+	  .attr("x1", width + margin.right)
+	  .attr("x2", width + margin.right);
 
 	focus1.append("circle")
 	  .attr("r", 7.5);
@@ -115,9 +119,19 @@ function drawLinegraphs(error, dataNL, dataNW) {
 	  .attr("class", "overlay")
 	  .attr("width", width)
 	  .attr("height", height)
-	  .on("mouseover", function() { focus1.style("display", null); focus2.style("display", null); })
-	  .on("mouseout", function() { focus1.style("display", "none"); focus2.style("display", "none"); })
-	  .on("mousemove", mousemove);
+		  .on("mouseover", function() { 
+		  	focus1.style("display", null); 
+		  	focus2.style("display", null); 
+		  	tooltip1.style("visibility", "visible"); 
+		  	tooltip2.style("visibility", "visible"); 
+		  })
+		  .on("mouseout", function() { 
+		  	focus1.style("display", "none"); 
+		  	focus2.style("display", "none"); 
+		  	tooltip1.style("visibility", "visible"); 
+		  	tooltip2.style("visibility", "visible");
+		  })
+		  .on("mousemove", mousemove);
 
 	// Draw line Norway
 	dataNW.forEach(function(d) {
@@ -160,24 +174,56 @@ function drawLinegraphs(error, dataNL, dataNW) {
 
 	focus2.append("line")
 	  .attr("class", "y-hover-line hover-line")
-	  .attr("x1", width)
-	  .attr("x2", width);
+	  .attr("x1", width+margin.right)
+	  .attr("x2", width+margin.right);
 
 	focus2.append("circle")
 	  .attr("r", 7.5);
 
 	focus2.append("text")
-	  .attr("x", 15)
-		.attr("dy", ".31em");
+	  .attr("x", 30)
+	  .attr("dy", ".31em");
 
 	svg2.append("rect")
 	  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 	  .attr("class", "overlay")
 	  .attr("width", width)
 	  .attr("height", height)
-	  .on("mouseover", function() { focus2.style("display", null);focus1.style("display", null); })
-	  .on("mouseout", function() { focus2.style("display", "none");focus1.style("display", null); })
-	  .on("mousemove", mousemove);
+		  .on("mouseover", function() { 
+		  	focus2.style("display", null);
+		  	focus1.style("display", null); 
+		  	tooltip2.style("visibility", "visible"); 
+		  	tooltip1.style("visibility", "visible"); 
+		  })
+		  .on("mouseout", function() { 
+		  	focus2.style("display", "none");
+		  	focus1.style("display", null); 
+		  	tooltip2.style("visibility", "visible"); 
+		  	tooltip1.style("visibility", "visible");
+		  })
+		  .on("mousemove", mousemove);
+
+  	var tooltip1 = d3.select("div.chartstart")
+
+	  .style("position", "relative")
+	  .style("text-anchor", "left")
+	  .style("z-index", "100")
+	  .style("visibility", "visible");
+
+	tooltip1.append("text1")
+	  .attr("x", 10)
+	  .attr("dy", ".31em");
+
+	var tooltip2 = d3.select("div.chartstart2")
+
+	  .style("position", "relative")
+	  .style("text-anchor", "left")
+	  .style("z-index", "100")
+	  .style("visibility", "visible");
+
+	tooltip2.append("text2")
+	  .attr("x", 10)
+	  .attr("dy", ".31em");
 
 
 	// Create function for mousemove
@@ -196,7 +242,11 @@ function drawLinegraphs(error, dataNL, dataNW) {
 	focus2.select("text").text(function() { return d2.Marketvalue; });
 	focus2.select(".x-hover-line").attr("y2", height - y(d2.Marketvalue));
 	focus2.select(".y-hover-line").attr("x2", width + width);
-	d3.select("svg#container3").append("text");
+	//tooltip1.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
+	tooltip1.select("text1").text(function() { return d.Marketvalue; + ".000.000";  });
+	//tooltip2.attr("transform", "translate(" + x(d2.Year) + "," + y(d2.Marketvalue) + ")");
+	tooltip2.select("text2").text(function() { return d2.Marketvalue + ".000.000"; });
+
 	}
 }
 
