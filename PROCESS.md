@@ -49,3 +49,11 @@ Vandaag is het me eindelijk gelukt om twee line graphs over de stacked barcharts
 ## Dag 11
 #### Woensdag 21-6
 Vandaag heb ik weer geprobeerd de tooltips aan elkaar te linken maar dat blijft me niet lukken, morgen ga ik dit nog een keer vragen. Verder heb ik een dropdownmenu gemaakt met verschillende percentages en een grafiek met de Nederlandse aardgasreserves.
+
+## Dag 12
+#### Donderdag 22-6
+Vandaag heb ik het dropdownmenu verder verbeterd, eerst bleef een gedeelte van de grafiek staan wanneer veranderde in het dropdownmenu, dit is nu verholpen. Verder ben ik de hele dag bezig geweest met het linken van de tooltips aan elkaar en dit is me nu na 4 dagen eindelijk gelukt met hulp van Tim!
+
+## Dag 13
+#### Maandag 23-6
+Vandaag ga ik een linegraph toevoegen voor het begin van de story namelijk dat de aardgasreserves opraken, als we door gaan met het tempo van gaswinning waarin we nu zitten is in 2034 het gas op. Daarnaast wil ik vandaag ook de grafieken maken voor de situatie wanneer we nu alsnog de gasbaten in een vermogensfonds stoppen.
