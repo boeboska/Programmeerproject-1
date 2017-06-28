@@ -22,6 +22,9 @@ percentage wat per jaar opgenomen kan worden voor de begroting. Als laatste om h
 maken geef ik een lijn grafiek met daarin het toekomstperspectief wanneer het fonds nu als nog
 opgericht zou worden, het is nog niet te laat.
 
+![alt text](https://github.com/miloubis/Programmeerproject/blob/master/doc/Eerste%20grafieken.jpg "Schets 1")
+![alt text](https://github.com/miloubis/Programmeerproject/blob/master/doc/Schets1.JPG "Schets 2")
+
 Gelijksoortige visualisaties heb ik niet gevonden tot nu toe, wel heb ik voorbeelden van de visualisaties apart.
 
 De data die ik nodig heb voor deze visualisaties komt van het CBS
