@@ -31,13 +31,13 @@ var svg = d3.select("#graph")
 // Append title
 svg.append("text")
       .attr("x", (10))             
-      .attr("y", 5)
+      .attr("y", 3)
       .attr("text-anchor", "left")  
       .style("font-size", "16px")  
       .text("Vermogensfonds in voor de Nederlandse aardgasbaten vanaf 2018");
 
 // Import the CSV data
-d3.csv("/data/Fund2018.csv", function(error, data) {
+d3.csv("/Programmeerproject/data/Fund2018.csv", function(error, data) {
   if (error) throw error;
   
    // Format the data
@@ -85,8 +85,8 @@ d3.csv("/data/Fund2018.csv", function(error, data) {
   // Add a label to the y axis
   svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("ygas", 0 - 200)
-        .attr("xyear", 0 - (height / 2))
+        .attr("y", 3)
+        .attr("x", -50)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("In miljarden euro's")
