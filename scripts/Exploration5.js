@@ -31,10 +31,41 @@ var svg = d3.select("#graph")
 // Append title
 svg.append("text")
       .attr("x", (10))             
-      .attr("y", 3)
+      .attr("y", 0)
       .attr("text-anchor", "left")  
       .style("font-size", "16px")  
       .text("Vermogensfonds in voor de Nederlandse aardgasbaten vanaf 2018");
+
+svg.append("rect")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", "#d0743c");
+
+svg.append("rect")
+    .attr("x", width - 19)
+    .attr("y", 20)
+    .attr("width", 19)
+    .attr("height", 19)
+    .attr("fill", "#ff8c00");
+
+svg.append("text")
+        .attr("x", width - 84)
+        .attr("y", 9.5)
+        .attr("dy", "0.32em")
+        .text("Marktwaarde")
+        .style("font-family", "Arial")
+        .style("font-size", "10px");
+
+svg.append("text")
+        .attr("x", width - 84)
+        .attr("y", 29.5)
+        .attr("dy", "0.32em")
+        .text("Gasbaten")
+        .style("font-family", "Arial")
+        .style("font-size", "10px");
+
+
 
 // Import the CSV data
 d3.csv("/Programmeerproject/data/Fund2018.csv", function(error, data) {
@@ -118,9 +149,6 @@ d3.csv("/Programmeerproject/data/Fund2018.csv", function(error, data) {
                 return d.key == fruit;
               })
 
-    console.log(selectGroup);
-    console.log(xyear(parseYear("2020")))
-
 	    var selectGroups = svg.selectAll(".fruitGroups")
 		    .data(selectGroup, function(d){
 		      return d ? d.key : this.key;
@@ -158,9 +186,6 @@ colors = ["#d0743c", "#ff8c00"]
  		var selectGroup = nest.filter(function(d){
                 return d.key == fruit;
               })
-
-    console.log(selectGroup);
-    console.log(xyear(parseYear("2020")))
 
  		// Select all of the grouped elements and update the data
 	    var selectGroups = svg.selectAll(".fruitGroups")
