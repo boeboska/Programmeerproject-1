@@ -1,7 +1,7 @@
 queue()
-  .defer(d3.json, "dataNL.json")
-  .defer(d3.json, "dataNW.json")
-  .defer(d3.json, "dataNLPension.json")
+  .defer(d3.json, "/Programmeerproject/data/dataNL.json")
+  .defer(d3.json, "/Programmeerproject/data/dataNW.json")
+  .defer(d3.json, "/Programmeerproject/data/dataNLPension.json")
   .await(drawLinegraphs);
 
 // Change with dropdownmenu
@@ -13,7 +13,7 @@ d3.select('#inds')
       d3.select("svg#container1").selectAll("text").remove();
       d3.select("svg#container1").selectAll("g").remove();
       d3.select("svg#container1").selectAll("path.line").remove();
-      drawChart("svg#container1", "CompositionFundNL.csv", "Netherlands");
+      drawChart("svg#container1", "/Programmeerproject/data/CompositionFundNL.csv", "Netherlands");
       queue()
   		.defer(d3.json, "dataNL.json")
   		.defer(d3.json, "dataNW.json")
@@ -24,7 +24,7 @@ d3.select('#inds')
       d3.select("svg#container1").selectAll("text").remove();
       d3.select("svg#container1").selectAll("g").remove();
       d3.select("svg#container1").selectAll("path.line").remove();
-      drawChart("svg#container1", "CompositionFundNLPension.csv", "Netherlands");
+      drawChart("svg#container1", "/Programmeerproject/data/CompositionFundNLPension.csv", "Netherlands");
       queue()
       	.defer(d3.json, "dataNLPension.json")
   		.defer(d3.json, "dataNW.json")

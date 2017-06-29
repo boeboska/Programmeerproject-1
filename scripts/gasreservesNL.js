@@ -24,7 +24,7 @@ var line5 = d3.line()
 var g5 = svg5.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.up + ")");
 
-d3.json("GasreservesNL.json", function(error, data5) {
+d3.json("/Programmeerproject/data/GasreservesNL.json", function(error, data5) {
     if (error) throw error;
 
     data5.forEach(function(d) {

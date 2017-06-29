@@ -103,8 +103,8 @@ function drawChart(container, barchartdata, country) {
   });
 }
 
-drawChart("svg#container2", "CompositionFundNorway.csv", "Marktwaarde Norwegian Global Pension Fund")
-drawChart("svg#container1", "CompositionFundNL.csv", "Marktwaarde wanneer Nederland een vermogensfonds gestart was")
+drawChart("svg#container2", "/Programmeerproject/data/CompositionFundNorway.csv", "Marktwaarde Norwegian Global Pension Fund")
+drawChart("svg#container1", "/Programmeerproject/data/CompositionFundNL.csv", "Marktwaarde wanneer Nederland een vermogensfonds gestart was")
 
 
 
