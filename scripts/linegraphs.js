@@ -225,7 +225,6 @@ function drawLinegraphs(error, dataNL, dataNW) {
 	  .attr("x", 10)
 	  .attr("dy", ".31em");
 
-
 	// Create function for mousemove
 	function mousemove() {
 	var x0 = x.invert(d3.mouse(this)[0]),
@@ -243,9 +242,9 @@ function drawLinegraphs(error, dataNL, dataNW) {
 	focus2.select(".x-hover-line").attr("y2", height - y(d2.Marketvalue));
 	focus2.select(".y-hover-line").attr("x2", width + width);
 	//tooltip1.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
-	tooltip1.select("text1").text(function() { return d.Marketvalue + ".000.000";  });
+	tooltip1.select("text1").text(function() { return "€ " + d.Marketvalue + ".000.000";  });
 	//tooltip2.attr("transform", "translate(" + x(d2.Year) + "," + y(d2.Marketvalue) + ")");
-	tooltip2.select("text2").text(function() { return d2.Marketvalue + ".000.000"; });
+	tooltip2.select("text2").text(function() { return "€ " + d2.Marketvalue + ".000.000"; });
 
 	}
 }

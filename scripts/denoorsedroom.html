@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="thenorwegiandream.css">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, sans-serif}
+
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('/doc/norwegian_oilplatform3.jpg');
+    min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url("/doc/aardgas_groningen1.jpg");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("/doc/future_generations3.jpg");
+    min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-white w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button">Home</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"> Aardgasreserves ten einde</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"> Nederland vs. Noorwegen</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"> Het kan nog steeds...</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">Aardgasreserves ten einde</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">Nederland vs. Noorwegen</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">Het kan nog steeds...</a>
+
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">DE <span class="w3-hide-small">NOORSE</span> DROOM</span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">Aardgas voor bijna tachtig procent op</h3>
+  <p class="w3-center"><em>.</em></p>
+  <p>Sinds de ontdekking van gas bij Slochteren in Groningen genieten we in Nederland van de aardgasbaten. Wanneer we in het huidige winningstempo doorgaan zullen we nog tot 2034 kunnen van de aardgasbaten kunnen profiteren. Daarna zal deze bron van inkomsten voor de Nederlandse begroting wegvallen.</p>
+  <p>In Noorwegen hebben ze dit anders aangepakt, de Noren hebben hun oliebaten sinds de 1996 in een fonds gestopt. Van het rendement dat gemaakt wordt op het fonds wordt jaarlijks een percentage onttrokken voor de begroting van de Noren. Dit fonds heeft inmiddels een hoogte bereikt van meer dan 850 miljard euro, waardoor de toekomstige generaties ook nog kunnen genieten van de oliebaten wanneer de reserves uitgeput zijn.</p>
+  <svg id="container5" style="position:center" width="650" height="350"></svg>
+  <p>Wat als Nederland bij de ontdekking van aardgas ook besloten had een vermogensfonds op te richten? Op welk bedrag zou onze teller dan staan?</p>
+</div>
+
+
+<!-- Second chapter (NL vs. NW) -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-xxlarge w3-text-white w3-wide">Nederland vs. Noorwegen</span>
+  </div>
+</div>
+
+<!-- Container (NL vs. NW) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  <h3 class="w3-center">Wat als we de gasbaten sinds het begin in een vermogensfonds gestopt hadden?</h3>
+  <p class="w3-center"><em></em></p>
+  <p>Wanneer we de gasbaten vanaf de ontdekking van het gas in Groningen in een fonds hadden gestopt hadden we ook een aardig bedrag op de teller staan. Stel we nemen hetgemiddelde rendement van het Noorse fonds 5,6 procent en een jaarlijkse onttrekking voor de begroting van 4 procent zouden we in 2016 een bedrag van 390 miljard bereikt hebben. Wanneer we het gemiddeld rendement van de grootste pensioensfondsen van Nederland kiezen zouden we nog op een veel hoger bedrag terecht komen, in het menu kunt u kiezen welk rendement u wilt zien. </p>
+  
+
+</div>
+    <div class="tellers" style="position:relative" style="width:100%">
+      <div class="chartstart" style="float:left" ></div>
+      <div class="chartstart2" style="float:right"></div>
+    </div>
+
+    <div class="checkbox" style="width:100%" style="position:bottom">
+      <select id="inds" style="width:40%" style="position:bottom">
+          <option value="Norwayfund" selected="selected">Gemiddeld rendement Noorwegen (5,7%)</option>
+          <option value="Pensionfunds">Gemiddeld rendement ABP, PMT en PFZW (7,8%)</option>
+      </select>
+    </div>
+
+    <div class="charts" style="position:relative" style="margin-bottom:128px">
+        <svg id="container1" style="display: inline-block;" width="650" height="350" position="relative"></svg>
+      <svg id="container2" style="display: inline-block;" width="650" height="350" position="relative"></svg>
+    </div>
+  <p class="w3-center"><em> </em></p>
+<!-- Third Image with Het kan nog steeds... Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">Het kan nog steeds...</span>
+  </div>
+</div>
+
+<!-- Container (Het kan nog steeds... Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">Wat als we de gasbaten vanaf 2018 alsnog in een fonds stoppen?</h3>
+  <p class="w3-center"><em></em></p>
+  <p>Stel we zouden vanaf 1018 alsnog de gasbaten in een vermogensfonds stoppen, zou alsnog een aardig fonds opgebouwd kunnen worden. Hierbij is een zeer conservatief rendement aangenomen van 3% voor de toekomst, daarnaast wordt er per jaar een bedrag van 2 miljard van het fonds onttrokken voor de Nederlandse begroting. De gasprijsin de toekomst is zeer onzeker, daarom hebben we de gasprijs aan de olieprijs gekoppeld. Aand hand van de raming 2018 van het Centraal Economisch Plan is een schatting gemaakt van een lage olieprijs (30 dollar per vat) en een hoge olieprijs (51 dollar per vat) voor de toekomst. U kunt hieronder uit deze twee scenario's. </p>
+    
+  <div id = "oilDropdown"></div>
+  <div id="graph"></div>
+  <script src="Exploration5.js"></script>
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    <script type="text/javascript" src="stackedBarchart.js"></script>
+    <script type="text/javascript" src="linegraphs.js"></script>
+    <script type="text/javascript" src="gasreservesNL.js"></script>
+    <!--<script type="text/javascript" src="Exploration5.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="multiline.css">
+
+</footer>
+ 
+
+
+<!--To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>

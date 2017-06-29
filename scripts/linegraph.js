@@ -5,6 +5,14 @@ function drawLinegraph(container, container2, data) {
       width = +svg.attr("width") - margin.left - margin.right,
       height = +svg.attr("height") - margin.top - margin.bottom;
 
+  // Append title
+  svg.append("text")
+      .attr("x", (10))             
+      .attr("y", 20)
+      .attr("text-anchor", "left")  
+      .style("font-size", "16px")  
+      .text("Aardgasreserves Nederland");
+
   var parseTime = d3.timeParse("%Y")
       bisectDate = d3.bisector(function(d) { return d.Year; }).left;
 
@@ -50,33 +58,33 @@ function drawLinegraph(container, container2, data) {
           .attr("class", "line")
           .attr("d", line);
 
-      var focus = g3.append("g")
-          .attr("class", "focus")
+      var tip = g3.append("g")
+          .attr("class", "tip")
           .style("display", "none");
 
-      focus.append("line")
+      tip.append("line")
           .attr("class", "x-hover-line hover-line")
           .attr("y1", 0)
           .attr("y2", height);
 
-      focus.append("line")
+      tip.append("line")
           .attr("class", "y-hover-line hover-line")
           .attr("x1", width)
           .attr("x2", width);
 
-      focus.append("circle")
+      tip.append("circle")
           .attr("r", 7.5);
 
-      focus.append("text")
+      tip.append("text")
           .attr("x", 15)
         	.attr("dy", ".31em");
 
       // if first iteratin of function
-      // focus2 = focus;
+      // tip2 = tip;
 
       // if (container === "svg#container1") {
       //   console.log('hallo')
-      //   focus2 = focus;
+      //   tip2 = tip;
       // }
 
       svg.append("rect")
@@ -84,8 +92,8 @@ function drawLinegraph(container, container2, data) {
           .attr("class", "overlay")
           .attr("width", width)
           .attr("height", height)
-          .on("mouseover", function() { focus.style("display", null); })
-          .on("mouseout", function() { focus.style("display", "none"); })
+          .on("mouseover", function() { tip.style("display", null); })
+          .on("mouseout", function() { tip.style("display", "none"); })
           .on("mousemove", mousemove);
 
       // svg2.append("rect")
@@ -93,8 +101,8 @@ function drawLinegraph(container, container2, data) {
       //     .attr("class", "overlay")
       //     .attr("width", width)
       //     .attr("height", height)
-      //     .on("mouseover", function() { focus.style("display", null); })
-      //     .on("mouseout", function() { focus.style("display", "none"); })
+      //     .on("mouseover", function() { tip.style("display", null); })
+      //     .on("mouseout", function() { tip.style("display", "none"); })
       //     .on("mousemove", mousemove);
 
       function mousemove() {
@@ -103,15 +111,15 @@ function drawLinegraph(container, container2, data) {
             d0 = data[i - 1],
             d1 = data[i],
             d = x0 - d0.Year > d1.Year - x0 ? d1 : d0;
-        focus.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
-        focus.select("text").text(function() { return d.Marketvalue; });
-        focus.select(".x-hover-line").attr("y2", height - y(d.Marketvalue));
-        focus.select(".y-hover-line").attr("x2", width + width);
+        tip.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
+        tip.select("text").text(function() { return d.Marketvalue; });
+        tip.select(".x-hover-line").attr("y2", height - y(d.Marketvalue));
+        tip.select(".y-hover-line").attr("x2", width + width);
 
-        // focus2.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
-        // focus2.select("text").text(function() { return d.Marketvalue; });
-        // focus2.select(".x-hover-line").attr("y2", height - y(d.Marketvalue));
-        // focus2.select(".y-hover-line").attr("x2", width + width);
+        // tip2.attr("transform", "translate(" + x(d.Year) + "," + y(d.Marketvalue) + ")");
+        // tip2.select("text").text(function() { return d.Marketvalue; });
+        // tip2.select(".x-hover-line").attr("y2", height - y(d.Marketvalue));
+        // tip2.select(".y-hover-line").attr("x2", width + width);
       }
   });
 }
