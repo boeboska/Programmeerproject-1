@@ -55,5 +55,19 @@ Vandaag heb ik weer geprobeerd de tooltips aan elkaar te linken maar dat blijft 
 Vandaag heb ik het dropdownmenu verder verbeterd, eerst bleef een gedeelte van de grafiek staan wanneer veranderde in het dropdownmenu, dit is nu verholpen. Verder ben ik de hele dag bezig geweest met het linken van de tooltips aan elkaar en dit is me nu na 4 dagen eindelijk gelukt met hulp van Tim!
 
 ## Dag 13
-#### Maandag 23-6
+#### Maandag 26-6
 Vandaag ga ik een linegraph toevoegen voor het begin van de story namelijk dat de aardgasreserves opraken, als we door gaan met het tempo van gaswinning waarin we nu zitten is in 2034 het gas op. Daarnaast wil ik vandaag ook de grafieken maken voor de situatie wanneer we nu alsnog de gasbaten in een vermogensfonds stoppen.
+
+## Dag 14
+#### Dinsdag 27-6
+Vandaag moest ik alsnog data verwerken voor wanneer we de gasbaten alsnog in een vermogensfonds zouden stoppen,
+deze resultaten zijn vandaag uit mijn onderzoek gekomen.
+
+## Dag 15
+#### Woensdag 28-6
+Vandaag heb ik de grafiek gemaakt met twee verschillende opties qua olieprijzen voor de toekomst, hierbij had ik eerst een vorobeeld in v3, maar ik heb alles in v4 dus dit ging mis. Opnieuw begonnen en afgemaakt.
+
+## Dag 16
+#### Donderdag 29-6
+Vandaag heel lang gekloot met Github pages, al mijn paths klopte niet en daarnaast werkte mijn queue script niet door in
+pages. Hier ben ik het grootste deel van de dag mee kwijt geweest. Verder heb ik mijn repo opgeschoond.
