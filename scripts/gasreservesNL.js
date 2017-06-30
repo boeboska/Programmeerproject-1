@@ -90,12 +90,9 @@ d3.json("/Programmeerproject/data/GasreservesNL.json", function(error, data5) {
     function mousemove() {
       var x0 = x.invert(d3.mouse(this)[0]),
           i = x0.getYear() - 88,
-          // i = bisectDate(data5, x0, 1),
           d0 = data5[i - 1],
           d1 = data5[i],
-
           d = x0 - d0.year > d1.year - x0 ? d1 : d0;
-          console.log(x0.getYear() - 88, i);
       tip.attr("transform", "translate(" + x(d.year) + "," + y(d.value) + ")");
       tip.select("text").text(function() { return d.value; });
       tip.select(".x-hover-line").attr("y2", height - y(d.value));
