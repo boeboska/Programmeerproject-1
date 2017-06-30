@@ -60,8 +60,6 @@ body, html {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-    </a>
     <a href="#home" class="w3-bar-item w3-button">Home</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"> Aardgasreserves ten einde</a>
     <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"> Nederland vs. Noorwegen</a>
@@ -160,12 +158,17 @@ body, html {
     <script type="text/javascript" src="gasreservesNL.js"></script>
 
 </footer>
- 
-
-
-<!--To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
-
+<script>
+  // Change style of navbar on scroll
+  window.onscroll = function() {myFunction()};
+  function myFunction() {
+      var navbar = document.getElementById("myNavbar");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
+      } else {
+          navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+      }
+  }
+</script>
 </body>
 </html>
