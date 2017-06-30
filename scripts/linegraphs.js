@@ -15,8 +15,8 @@ d3.select('#inds')
       d3.select("svg#container1").selectAll("path.line").remove();
       drawChart("svg#container1", "/Programmeerproject/data/CompositionFundNL.csv", "Netherlands");
       queue()
-  		.defer(d3.json, "dataNL.json")
-  		.defer(d3.json, "dataNW.json")
+  		.defer(d3.json, "/Programmeerproject/data/dataNL.json")
+  		.defer(d3.json, "/Programmeerproject/data/dataNW.json")
   		.await(drawLinegraphs);
     }
     else if (selectValue === "Pensionfunds") {
@@ -26,8 +26,8 @@ d3.select('#inds')
       d3.select("svg#container1").selectAll("path.line").remove();
       drawChart("svg#container1", "/Programmeerproject/data/CompositionFundNLPension.csv", "Netherlands");
       queue()
-      	.defer(d3.json, "dataNLPension.json")
-  		.defer(d3.json, "dataNW.json")
+      	.defer(d3.json, "/Programmeerproject/data/dataNL.json")
+  		.defer(d3.json, "/Programmeerproject/data/dataNW.json")
   		.await(drawLinegraphs);
     }
 })
